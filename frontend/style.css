@@ -1,0 +1,402 @@
+/* =========================
+   BASE
+========================= */
+body {
+    font-family: 'Segoe UI';
+    margin: 0;
+    background: linear-gradient(to right, #f3e8ff, #ede9fe);
+    text-align: center;
+}
+
+/* =========================
+   GLOBAL FIXES
+========================= */
+.hidden {
+    display: none !important;
+}
+
+.section {
+    padding: 70px 20px;
+}
+
+/* =========================
+   LANDING
+========================= */
+.landing {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 40px;
+}
+
+/* NAV */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #6b21a8;
+}
+
+.nav-btn {
+    background: #7c3aed;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+}
+
+/* HERO FIX (MOVE SLIGHTLY UP) */
+.hero {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 90px;
+}
+
+.hero-left {
+    max-width: 600px;
+}
+
+/* BADGE */
+.badge {
+    display: inline-block;
+    background: #e9d5ff;
+    color: #6b21a8;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+/* TITLE */
+.hero-left h1 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+.hero-left h1 span {
+    background: linear-gradient(45deg, #7c3aed, #a855f7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* TEXT */
+.hero-left p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* CTA BUTTON */
+.cta {
+    margin-top: 20px;
+    background: #7c3aed;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+/* =========================
+   GENDER SECTION
+========================= */
+.gender-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.gender-card {
+    width: 260px;
+    height: 380px;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 10px;
+}
+
+.gender-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+}
+
+.gender-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   MODE SECTION
+========================= */
+.mode-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.mode-card {
+    width: 280px;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.mode-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ede9fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px auto;
+}
+
+/* =========================
+   MANUAL SECTION (FIXED SPACING)
+========================= */
+.manual-header {
+    margin-bottom: 60px;
+}
+
+.step {
+    margin-bottom: 40px;
+}
+
+.step-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* GRID FIX (RESPONSIVE + SPACED) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    max-width: 650px;
+    margin: auto;
+    gap: 16px;
+}
+
+/* PILL */
+.pill {
+    padding: 10px;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    border: 2px solid #eee;
+    transition: all 0.2s ease;
+}
+
+.pill:hover {
+    border-color: #7c3aed;
+}
+
+.pill.active {
+    background: #7c3aed;
+    color: white;
+    border-color: #7c3aed;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(124,58,237,0.3);
+}
+
+/* =========================
+   BUTTON FIX (IMPORTANT)
+========================= */
+.manual-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 10;
+}
+
+.manual-action button.cta {
+    pointer-events: auto;
+}
+
+/* =========================
+   RESULTS AREA
+========================= */
+.palette-grid,
+.outfit-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/* COLOR FIX (NO WHITE BOX ISSUE) */
+.color-card {
+    width: 75px;
+    height: 75px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.color-top {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+}
+
+/* TIP TEXT */
+.tip {
+    font-size: 13px;
+    color: gray;
+    margin-top: 6px;
+}
+
+/* MANUAL FULL HEIGHT FEEL */
+#manualSection {
+    min-height: 100vh;
+    display: block;
+}
+
+/* =========================
+   IMAGE UPLOAD PAGE
+========================= */
+
+.image-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.image-header h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.image-header p {
+    color: #555;
+    font-size: 15px;
+}
+
+/* UPLOAD CONTAINER */
+.upload-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 50px;
+}
+
+/* UPLOAD BOX */
+.upload-box {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    width: 280px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.upload-box h3 {
+    margin-bottom: 20px;
+}
+
+/* BUTTON */
+.upload-btn {
+    display: inline-block;
+    background: #7c3aed;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.upload-btn:hover {
+    background: #6d28d9;
+}
+
+/* FILE TEXT */
+.file-name {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: gray;
+}
+
+/* OCCASION */
+.occasion-box {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.occasion-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; 
+    margin-top: 20px;
+    flex-wrap: nowrap; 
+}
+
+.occasion-options .pill {
+    padding: 8px 22px; 
+    border-radius: 25px;
+    background: white;
+    border: 1px solid #ddd; 
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-block;
+    width: auto; 
+    min-width: 80px;
+}
+
+.occasion-options .pill.active {
+    background: #7c3aed; 
+    color: white;
+    border-color: #7c3aed;
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.2);
+}
+
+/* ACTION BUTTONS */
+.image-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+

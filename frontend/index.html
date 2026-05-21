@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Stylist</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div id="landing" class="landing">
+    <div class="navbar">
+        <div class="logo">✦ ClothedInYou</div>
+        <button class="nav-btn" onclick="goToGender()">Get Started</button>
+    </div>
+
+    <div class="hero">
+        <div class="hero-left">
+            <div class="badge">AI-Powered Fashion Intelligence</div>
+
+            <h1>Your Personal <span>Stylist</span> Awaits!</h1>
+
+            <p>
+                Our AI analyzes your unique features to discover perfect color palettes and signature styles.
+            </p>
+
+            <button class="cta" onclick="goToGender()">Discover Your Style →</button>
+        </div>
+    </div>
+</div>
+
+<!-- GENDER -->
+<div id="genderSection" class="section hidden">
+    <h1 class="title">Who are we styling today?</h1>
+
+    <div class="gender-container">
+        <div class="gender-card men" onclick="selectGender('male')">
+            <img src="assets/man.jpeg" class="gender-img">
+            <div class="overlay"></div>
+            <div class="gender-text">Men</div>
+        </div>
+
+        <div class="gender-card women" onclick="selectGender('female')">
+            <img src="assets/woman.jpeg" class="gender-img">
+            <div class="overlay"></div>
+            <div class="gender-text">Women</div>
+        </div>
+    </div>
+</div>
+
+<!-- MODE -->
+<div id="modeSection" class="section hidden">
+    <h1 class="title">How would you like to proceed?</h1>
+
+    <div class="mode-container">
+
+        <div class="mode-card" onclick="showManual()">
+            <div class="icon-circle"><i data-lucide="sliders-horizontal"></i></div>
+            <h3>Manual Setup</h3>
+            <p>Skin tone + undertone quiz</p>
+        </div>
+
+        <div class="mode-card" onclick="showImage()">
+            <div class="icon-circle"><i data-lucide="camera"></i></div>
+            <h3>Image Upload</h3>
+            <p>AI detects your tone automatically</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- MANUAL -->
+<div id="manualSection" class="section hidden">
+
+    <div class="manual-header">
+        <h2>Refine Your Style Profile</h2>
+    </div>
+
+    <div class="step">
+        <div class="step-title">Skin Tone</div>
+        <div class="grid">
+            <div class="pill" onclick="setValue('skin','Fair',this)">Fair</div>
+            <div class="pill" onclick="setValue('skin','Medium',this)">Medium</div>
+            <div class="pill" onclick="setValue('skin','Dusky',this)">Dusky</div>
+            <div class="pill" onclick="setValue('skin','Dark',this)">Dark</div>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-title">Undertone</div>
+        <div class="grid">
+            <div class="pill" onclick="setValue('undertone','Warm',this)">Warm</div>
+            <div class="pill" onclick="setValue('undertone','Neutral',this)">Neutral</div>
+            <div class="pill" onclick="setValue('undertone','Cool',this)">Cool</div>
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-title">Occasion</div>
+        <div class="grid">
+            <div class="pill" onclick="setValue('occasion','Casual',this)">Casual</div>
+            <div class="pill" onclick="setValue('occasion','Formal',this)">Formal</div>
+            <div class="pill" onclick="setValue('occasion','Party',this)">Party</div>
+            <div class="pill" onclick="setValue('occasion','Wedding',this)">Wedding</div>
+        </div>
+    </div>
+
+    <button class="cta" onclick="getManual()">Get My Style →</button>
+
+    <div id="manualResult"></div>
+</div>
+
+<!-- IMAGE -->
+<div id="imageSection" class="section hidden">
+
+    <!-- HEADER -->
+    <div class="image-header">
+        <h1>Perfecting Your Image Profile</h1>
+        <p>These photos help us analyze your skin tone and vein undertone accurately.</p>
+    </div>
+
+    <!-- UPLOAD AREA -->
+    <div class="upload-container">
+
+        <!-- FACE UPLOAD -->
+        <div class="upload-box">
+            <h3>Step 1: Face Upload</h3>
+
+            <label class="upload-btn">
+                Choose Face Photo →
+                <input type="file" id="face" hidden>
+            </label>
+
+            <span class="file-name" id="faceName">No file chosen</span>
+        </div>
+
+        <!-- VEIN UPLOAD -->
+        <div class="upload-box">
+            <h3>Step 2: Vein Upload</h3>
+
+            <label class="upload-btn">
+                Choose Vein Photo →
+                <input type="file" id="hand" hidden>
+            </label>
+
+            <span class="file-name" id="handName">No file chosen</span>
+        </div>
+    </div>
+
+    <!-- OCCASION -->
+    <div class="occasion-box">
+    <h3>Occasion</h3>
+    <div class="occasion-options">
+        <div class="pill" onclick="setValue('occasion','Casual',this)">Casual</div>
+        <div class="pill" onclick="setValue('occasion','Formal',this)">Formal</div>
+        <div class="pill" onclick="setValue('occasion','Party',this)">Party</div>
+        <div class="pill" onclick="setValue('occasion','Wedding',this)">Wedding</div>
+    </div>
+</div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="image-actions">
+        <button class="cta" onclick="analyzeImages()">Analyze Image</button>
+        <button class="cta" onclick="getImageOutfit()">Get My Style →</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="detectResult"></div>
+    <div id="imageResult"></div>
+
+</div>
+
+<script src="app.js"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>
